@@ -13,7 +13,7 @@ const Services = () => {
             address: e.target.address.value,
             city: e.target.city.value
         };
-        axios.post('http://localhost:5000/order', order)
+        axios.post('https://safe-tundra-74673.herokuapp.com/order', order)
             .then(response => {
                 console.log(response);
                 const { data } = response;

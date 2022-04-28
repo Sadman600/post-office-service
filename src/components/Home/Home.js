@@ -9,7 +9,7 @@ const Home = () => {
 
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/user')
+        fetch('https://safe-tundra-74673.herokuapp.com/user')
             .then(res => res.json())
             .then(data => setUsers(data));
     }, [users]);
@@ -21,7 +21,7 @@ const Home = () => {
         const imgurl = e.target.imgurl.value;
         const user = { name, email, imgurl };
 
-        fetch('http://localhost:5000/user', {
+        fetch('https://safe-tundra-74673.herokuapp.com/user', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

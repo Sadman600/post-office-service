@@ -5,7 +5,7 @@ import './User.css';
 const User = ({ user }) => {
     const { _id, name, email, imgurl } = user;
     const handleDeleteUser = id => {
-        const url = `http://localhost:5000/user/${id}`;
+        const url = `https://safe-tundra-74673.herokuapp.com/user/${id}`;
         fetch(url, {
             method: 'DELETE'
         }).then(res => res.json())
