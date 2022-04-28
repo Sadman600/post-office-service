@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 import User from '../User/User';
 import './Home.css';
 
 const Home = () => {
+    const [user] = useAuthState(auth);
+
     const [users, setUsers] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/user')
             .then(res => res.json())
             .then(data => setUsers(data));
     }, [users]);
+
     const handelSubmit = e => {
         e.preventDefault();
         const name = e.target.name.value;
@@ -49,6 +54,7 @@ const Home = () => {
             </div>
 
             <div>
+                <h1>{user?.displayName}</h1>
                 <div className='users-container'>
                     {
                         users.map(user => <User key={user._id} user={user}></User>)
